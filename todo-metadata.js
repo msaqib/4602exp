@@ -23,18 +23,32 @@
   }
 
   function normalizeTags(rawTags) {
-    if (typeof rawTags !== 'string') return [];
     var seen = new Set();
-    return rawTags.split(',').reduce(function (acc, part) {
-      var trimmed = String(part).trim();
-      if (!trimmed) return acc;
+    var normalizeOne = function (s) {
+      var trimmed = String(s).trim();
+      if (!trimmed) return null;
       var key = trimmed.toLocaleLowerCase();
-      if (!seen.has(key)) {
-        seen.add(key);
-        acc.push(trimmed);
-      }
-      return acc;
-    }, []);
+      if (seen.has(key)) return null;
+      seen.add(key);
+      return trimmed;
+    };
+    var result = [];
+    if (typeof rawTags === 'string') {
+      rawTags.split(',').forEach(function (part) {
+        var v = normalizeOne(part);
+        if (v) result.push(v);
+      });
+      return result;
+    }
+    if (Array.isArray(rawTags)) {
+      rawTags.forEach(function (item) {
+        if (typeof item !== 'string') return;
+        var v = normalizeOne(item);
+        if (v) result.push(v);
+      });
+      return result;
+    }
+    return [];
   }
 
   function getMetadata(todo) {
@@ -46,7 +60,7 @@
     if (Array.isArray(todo.tags)) {
       // keep only string tags
       var onlyStrings = todo.tags.filter(function (t) { return typeof t === 'string'; });
-      tags = normalizeTags(onlyStrings.join(','));
+      tags = normalizeTags(onlyStrings);
     }
 
     return { dueDate: dueDate, tags: tags };
