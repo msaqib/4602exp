@@ -75,6 +75,35 @@ gh issue comment ISSUE_NUMBER --repo OWNER/REPO --body "REPLY_TEXT"
 
 For requests that require current external information, fetch a reliable source first and include the relevant value and time zone in the reply. Keep responses concise, accurate, and directly responsive to the latest comment.
 
+## Application Change Completion
+
+When handling a user-visible application change or feature request, use
+`capturing-ui-evidence` before reporting completion. After the implementation,
+tests, evidence commit, and push have succeeded:
+
+1. Identify the most recently updated open issue using the command in
+   **Default full engagement workflow**.
+2. Build immutable links using the pushed commit SHA:
+   - Commit: `https://github.com/OWNER/REPOSITORY/commit/SHA`
+   - Screenshot:
+     `https://raw.githubusercontent.com/OWNER/REPOSITORY/SHA/docs/evidence/CHANGE-SLUG/SCREENSHOT.png`
+3. Post one issue comment in this exact structure:
+
+   ```markdown
+   ## Implementation report
+
+   **Changes:** <concise summary>
+   **Passed:** <each validation command and outcome, or `None`>
+   **Failed:** <each failed validation command and outcome, or `None`>
+   **Commit:** <immutable commit URL>
+
+   **Snapshot:**
+   ![<description>](<immutable raw screenshot URL>)
+   ```
+
+Do not post the report before the push succeeds. Report every failed test
+plainly; never label the work complete when a required validation has failed.
+
 ## Completion
 
 After a successful write operation, report the action taken and link to the created comment when applicable.
