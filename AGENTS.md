@@ -13,3 +13,10 @@ Use the skill's workflow and safeguards rather than duplicating them here.
 For parallel or delegated execution of engagement tasks across issues or repositories, use the `github-issue-agent` subagent defined at:
 
 `.\.agents\agents\github-issue-agent.md`
+
+## UI Evidence
+
+When an implementation has a user-visible application effect, load and follow
+`.\.agents\skills\capturing-ui-evidence\SKILL.md`. The resulting browser
+screenshot is committed with the implementation and pushed to the configured
+upstream.
