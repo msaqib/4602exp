@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal & Modern Todo App</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="todo-wrapper">
+    <header class="app-header">
+      <div class="header-content">
+        <h1>Tasks</h1>
+        <p class="subtitle" id="currentDate">Stay organized and productive</p>
+      </div>
+      <span class="badge" id="taskCounter">0 pending</span>
+    </header>
+
+    <form class="todo-input-bar" id="todoForm" autocomplete="off">
+      <input
+        type="text"
+        id="todoInput"
+        placeholder="What needs to be done?"
+        required
+        autofocus
+      />
+      <button type="submit" id="addBtn" aria-label="Add task">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+    </form>
+
+    <nav class="filter-tabs" aria-label="Task filters">
+      <button type="button" class="tab active" data-filter="all">All</button>
+      <button type="button" class="tab" data-filter="active">Active</button>
+      <button type="button" class="tab" data-filter="completed">Completed</button>
+    </nav>
+
+    <section class="todo-list-container">
+      <ul class="todo-list" id="todoList"></ul>
+      <div class="empty-state" id="emptyState">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="m9 12 2 2 4-4"></path>
+        </svg>
+        <p>No tasks found</p>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <span id="itemsLeft">0 items remaining</span>
+      <button type="button" id="clearCompletedBtn" class="clear-btn">Clear completed</button>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

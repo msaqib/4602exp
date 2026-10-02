@@ -9,6 +9,9 @@ Use this skill when asked to retrieve issues, read an issue discussion, react to
 
 When explicitly invoked without a more specific instruction, complete the full engagement workflow for the most recently updated open issue: fetch it, read its body and comments, add a thumbs-up reaction to the newest comment (or the issue body when there are no comments), and post a relevant reply.
 
+## CRITICAL
+In case of ANY ambiguity, please ask the user for clarification.
+
 ## Requirements
 
 - Use `gh` for all GitHub operations.
