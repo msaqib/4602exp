@@ -4,6 +4,8 @@
   --text-main: #1e293b;
   --text-muted: #64748b;
   --text-dim: #94a3b8;
+  --label-light-blue: #38bdf8;
+  --label-light-blue-hover: #0ea5e9;
   --border-color: #e2e8f0;
   --primary: #3b82f6;
   --primary-hover: #2563eb;
@@ -92,12 +94,12 @@ body {
   font-size: 0.95rem;
   outline: none;
   transition: var(--transition);
-  color: #ef4444;
+  color: var(--label-light-blue);
   background: #f8fafc;
 }
 
 .todo-input-bar input::placeholder {
-  color: #f87171;
+  color: var(--label-light-blue);
 }
 
 .todo-input-bar input:focus {
@@ -146,19 +148,19 @@ body {
   padding: 8px 12px;
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: var(--label-light-blue);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: var(--transition);
 }
 
 .filter-tabs .tab:hover {
-  color: var(--text-main);
+  color: var(--label-light-blue-hover);
 }
 
 .filter-tabs .tab.active {
   background: var(--card-bg);
-  color: var(--primary);
+  color: var(--label-light-blue);
   font-weight: 600;
   box-shadow: var(--shadow-sm);
 }
@@ -294,19 +296,19 @@ body {
   border-top: 1px solid var(--border-color);
   padding-top: 18px;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--label-light-blue);
 }
 
 .clear-btn {
   background: none;
   border: none;
-  color: var(--text-muted);
+  color: var(--label-light-blue);
   cursor: pointer;
   font-size: 0.85rem;
   transition: var(--transition);
 }
 
 .clear-btn:hover {
-  color: var(--danger);
+  color: var(--label-light-blue-hover);
   text-decoration: underline;
 }
